@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Authentication</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            .container{
+                background-color: #fff;
+                width: 35%;
+                margin: 30px auto;
+                text-align:center;
+                padding: 20px 0 0 0;
+                padding-bottom:20px;
+                border-radius: 4px;
+                box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
+            }
+            .first{
+                background-color: hsl(210, 29%, 97%); /* Green */
+                border-radius: 4px;
+                color: black;
+                padding: 5px 50px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                opacity: 0.6;
+                cursor: not-allowed;
+
+            }
+            .second{
+                background-color: #034a81;
+                padding: 20px;
+
+
+            }
+            .third{
+                border-radius: 4px;
+                
+
+            }
+        </style>
+    </head>
+    <body  >
+        <div class="container">
+
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags }} alert-dismissible fade show" role="alert">
+        <strong>message:</strong> {{ message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        {% endfor %}
+       
+         
+        <center><h3 class="second">Registration Form</h3></center> 
+        {% if user.is_authenticated %}
+       
+        
+        <center><h3>Hello {{fname}}</h3>
+        <h4>you're successfully logged in</h4>
+        
+        <button class="first", type="submit"><a href="/signout">signout</a></button></center></div>
+        {% else %}
+        
+        <center><button class="first", type="submit"><a href="/signup">signup</a></button>
+        <button class="first",type="submit"><a href="/signin">signin</a></button></center>
+        
+        {% endif %}
+        </div>
+        
+
+        
+       
+        
+        
+        <script src="" async defer></script>
+    </body>
+</html>
